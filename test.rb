@@ -1,0 +1,1 @@
+p File.open('./training_data/チョコレート.txt').read

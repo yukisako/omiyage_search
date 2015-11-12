@@ -2,16 +2,10 @@ require_relative "naivebayes.rb"
 
 nb = Training.new
 
-cat = ["チョコレート", "せんべい", "まんじゅう"]
+category = ["チョコレート", "せんべい", "まんじゅう", "ゆるキャラ物", "キーホルダー","Tシャツ"]
+#category = ["チョコレート", "せんべい", "まんじゅう", "ゆるキャラ物", "キーホルダー","Tシャツ", "置物", "クッキー", "絵葉書", "ケーキ", "タオル", "アクセサリ","アルコール"]
 
-cat = 'チョコレート'
-doc = File.open('./training_data/チョコレート.txt').read
-nb.train(doc, cat)
-
-cat = 'せんべい'
-doc = File.open('./training_data/せんべい.txt').read
-nb.train(doc, cat)
-
-cat = 'まんじゅう'
-doc = File.open('./training_data/まんじゅう.txt').read
-nb.train(doc, cat)
+category.each do |cat|
+  doc = File.open("./training_data/#{cat}.txt").read
+  nb.train(doc, cat)
+end
